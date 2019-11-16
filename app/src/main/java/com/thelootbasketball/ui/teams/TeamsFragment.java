@@ -25,8 +25,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.thelootbasketball.R;
 
-import org.w3c.dom.Text;
-
 public class TeamsFragment extends Fragment {
 
     TableLayout team_table;
@@ -80,7 +78,6 @@ public class TeamsFragment extends Fragment {
                 call.cancel();
             }
         });
-
         return root;
     }
 }
