@@ -8,6 +8,16 @@ public class Teams {
     private String name;
     @SerializedName("_id")
     private String id;
+    @SerializedName("division")
+    private String division;
+
+
+    public Teams(){}
+
+    public Teams(String team_Name,String division){
+        name = team_Name;
+        this.division = division;
+    }
 
     public String getName(){
         return name;
@@ -24,6 +34,16 @@ public class Teams {
     public void setId(String id){
         this.id = id;
     }
+
+    public String getDivision(){
+        return division;
+    }
+
+    public void setDivision(String division){
+        this.division = division;
+    }
+
+
 
     @Override
     public String toString(){
