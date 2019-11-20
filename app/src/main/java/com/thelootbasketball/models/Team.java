@@ -2,7 +2,7 @@ package com.thelootbasketball.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Teams {
+public class Team {
 
     @SerializedName("name")
     private String name;
@@ -12,9 +12,9 @@ public class Teams {
     private String division;
 
 
-    public Teams(){}
+    public Team(){}
 
-    public Teams(String team_Name,String division){
+    public Team(String team_Name, String division){
         name = team_Name;
         this.division = division;
     }
@@ -47,7 +47,8 @@ public class Teams {
 
     @Override
     public String toString(){
-        return name + " \n";
+        return name + " \n" + id + " \n";
     }
+
 
 }

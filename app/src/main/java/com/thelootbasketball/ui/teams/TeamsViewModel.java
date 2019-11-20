@@ -6,7 +6,7 @@
 //
 //import com.thelootbasketball.APIClient;
 //import com.thelootbasketball.APIInterface;
-//import com.thelootbasketball.models.Teams;
+//import com.thelootbasketball.models.Team;
 //import java.util.List;
 //
 //import retrofit2.Call;
@@ -23,12 +23,12 @@
 //        mText = new MutableLiveData<>();
 //
 //        apiInterface = APIClient.getClient().create(APIInterface.class);
-//        Call<List<Teams>> call = apiInterface.getTeams();
-//        call.enqueue(new Callback<List<Teams>>() {
+//        Call<List<Team>> call = apiInterface.getTeams();
+//        call.enqueue(new Callback<List<Team>>() {
 //            @Override
-//            public void onResponse(Call<List<Teams>> call, Response<List<Teams>> response) {
+//            public void onResponse(Call<List<Team>> call, Response<List<Team>> response) {
 //                String displayResponse = "";
-//                List<Teams> getTeams = response.body();
+//                List<Team> getTeams = response.body();
 //
 //                for (int i = 0; i < getTeams.size(); i++){
 //                    displayResponse += getTeams.get(i).toString();
@@ -37,7 +37,7 @@
 //            }
 //
 //            @Override
-//            public void onFailure(Call<List<Teams>> call, Throwable t) {
+//            public void onFailure(Call<List<Team>> call, Throwable t) {
 //                call.cancel();
 //            }
 //        });
