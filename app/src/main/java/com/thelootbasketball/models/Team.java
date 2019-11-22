@@ -14,16 +14,17 @@ public class Team {
 
     public Team(){}
 
-    public Team(String team_Name, String division){
+    public Team(String team_Name, String team_Id, String division){
         name = team_Name;
+        this.id = team_Id;
         this.division = division;
     }
 
-    public String getName(){
+    public String getTeamName(){
         return name;
     }
 
-    public void setName(String name){
+    public void setTeamName(String name){
         this.name = name;
     }
 
