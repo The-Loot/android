@@ -13,10 +13,13 @@ import com.thelootbasketball.R;
 import com.thelootbasketball.models.Player;
 import com.thelootbasketball.models.TeamInfo;
 
+import org.w3c.dom.Text;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class TeamProfileActivity extends FragmentActivity {
@@ -29,7 +32,9 @@ public class TeamProfileActivity extends FragmentActivity {
         setContentView(R.layout.team_profile_activity);
 
         final TextView team_name = findViewById(R.id.team_name);
-        final TextView textView2 = findViewById(R.id.textView2);
+        final TextView winsandlost = findViewById(R.id.winsandlost);
+        final TextView calPerc = findViewById(R.id.CalcPerc);
+        final TextView roster = findViewById(R.id.roster);
 
         Toolbar mToolBar = (Toolbar) findViewById(R.id.back_button);
         mToolBar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
@@ -51,13 +56,22 @@ public class TeamProfileActivity extends FragmentActivity {
                 team_name.setText(teamName);
             }
 
+            int win = 6;
+            int losses = 3;
+            DecimalFormat df = new DecimalFormat("#.000");
+            double CalcPerc = (1.0*win/(win+losses));
+            String stats = "W: "+ win + " L: " + losses;
+            winsandlost.setText(stats);
+            calPerc.setText(df.format(CalcPerc));
+
+
             apiInterface = APIClient.getClient().create(APIInterface.class);
             Call<List<Player>> call = apiInterface.getPlayersByTeam(team_id);
             call.enqueue(new Callback<List<Player>>() {
                 @Override
                 public void onResponse(Call<List<Player>> call, Response<List<Player>> response) {
                     if(!response.isSuccessful()){
-                        textView2.setText("Code: " + response.code());
+                        roster.setText("Code: " + response.code());
                         return;
                     }
                     List<Player> getPlayersByTeam = response.body();
@@ -65,8 +79,8 @@ public class TeamProfileActivity extends FragmentActivity {
                     for(int i = 0; i < getPlayersByTeam.size(); i++){
                         displayResponse += getPlayersByTeam.get(i).toString();
                     }
-                    textView2.setTextSize(20);
-                    textView2.setText(displayResponse);
+                    roster.setTextSize(20);
+                    roster.setText(displayResponse);
                 }
 
                 @Override
