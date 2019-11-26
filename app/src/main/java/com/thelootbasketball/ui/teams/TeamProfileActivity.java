@@ -1,6 +1,7 @@
 package com.thelootbasketball.ui.teams;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toolbar;
 import androidx.annotation.Nullable;
@@ -19,7 +20,6 @@ import retrofit2.Response;
 import java.util.List;
 
 public class TeamProfileActivity extends FragmentActivity {
-    Toolbar mToolBar;
     APIInterface apiInterface;
 
     @Nullable
@@ -28,8 +28,17 @@ public class TeamProfileActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.team_profile_activity);
 
-        final TextView textView = findViewById(R.id.textView1);
+        final TextView team_name = findViewById(R.id.team_name);
         final TextView textView2 = findViewById(R.id.textView2);
+
+        Toolbar mToolBar = (Toolbar) findViewById(R.id.back_button);
+        mToolBar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        mToolBar.setNavigationOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                finish();
+            }
+        });
 
         TeamInfo t = TeamInfo.getInstance();
 
@@ -39,7 +48,7 @@ public class TeamProfileActivity extends FragmentActivity {
             Team theTeam = t.getTeam(teamName);
             final String team_id = theTeam.getId(); //get the team id value
             if(teamName != null){
-                textView.setText(teamName);
+                team_name.setText(teamName);
             }
 
             apiInterface = APIClient.getClient().create(APIInterface.class);
@@ -65,8 +74,6 @@ public class TeamProfileActivity extends FragmentActivity {
                     call.cancel();
                 }
             });
-        }
-        mToolBar = (Toolbar) findViewById(R.id.toolbar);
-
-    }
+        } //end if statement
+    } //end onCreate()
 }
