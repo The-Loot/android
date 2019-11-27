@@ -22,30 +22,16 @@ import com.thelootbasketball.R;
 
 
 public class TeamsFragment extends Fragment {
-
     TableLayout team_table;
     APIInterface apiInterface;
     TeamInfo t = TeamInfo.getInstance();
 
-//    private TeamsViewModel teamsViewModel;
-
-//        teamsViewModel =
-//                ViewModelProviders.of(this).get(TeamsViewModel.class);
-//        View root = inflater.inflate(R.layout.fragment_teams, container, false);
-//        final TextView textView = root.findViewById(R.id.display_row);
-//
-//        teamsViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         final View root = inflater.inflate(R.layout.fragment_teams, container, false);
-        team_table = (TableLayout) root.findViewById(R.id.teams);
+       team_table = root.findViewById(R.id.teams);
        // final TextView textView = root.findViewById(R.id.team_fragment);
 
         apiInterface = APIClient.getClient().create(APIInterface.class);

@@ -6,6 +6,7 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
+
 import com.thelootbasketball.APIClient;
 import com.thelootbasketball.APIInterface;
 import com.thelootbasketball.models.Team;
@@ -36,7 +37,7 @@ public class TeamProfileActivity extends FragmentActivity {
         final TextView calPerc = findViewById(R.id.CalcPerc);
         final TextView roster = findViewById(R.id.roster);
 
-        Toolbar mToolBar = (Toolbar) findViewById(R.id.back_button);
+        Toolbar mToolBar = findViewById(R.id.back_button);
         mToolBar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         mToolBar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
@@ -62,8 +63,7 @@ public class TeamProfileActivity extends FragmentActivity {
             double CalcPerc = (1.0*win/(win+losses));
             String stats = "W: "+ win + " L: " + losses;
             winsandlost.setText(stats);
-            calPerc.setText(df.format(CalcPerc));
-
+            calPerc.setText("% " + df.format(CalcPerc));
 
             apiInterface = APIClient.getClient().create(APIInterface.class);
             Call<List<Player>> call = apiInterface.getPlayersByTeam(team_id);
@@ -79,7 +79,6 @@ public class TeamProfileActivity extends FragmentActivity {
                     for(int i = 0; i < getPlayersByTeam.size(); i++){
                         displayResponse += getPlayersByTeam.get(i).toString();
                     }
-                    roster.setTextSize(20);
                     roster.setText(displayResponse);
                 }
 

@@ -24,8 +24,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/team_name"
             android:textSize="30sp"
-            android:paddingLeft="30dp"
-            android:paddingRight="0dp"
             android:paddingStart="30dp"
             android:paddingEnd="0dp"
             />
@@ -34,36 +32,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/winsandlost"
+            android:textSize="20sp"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/CalcPerc"
+            android:textSize="20sp"
+            android:paddingStart="50dp"
             />
-
-        <android.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
-            app:layout_scrollFlags="scroll|enterAlways"
-            />
-        <com.google.android.material.tabs.TabLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Roster"
-                />
-        </com.google.android.material.tabs.TabLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/roster"
+            android:text="Roster"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp"
+            android:background="#008080"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             />
 
+           <!-- <View
+                android:id="@+id/roster_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" /> -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/roster"
+                android:textSize="20sp"
+                />
+
     </LinearLayout>
+
+
 </ScrollView>
