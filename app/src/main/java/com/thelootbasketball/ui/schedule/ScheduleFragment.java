@@ -9,16 +9,20 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.thelootbasketball.R;
 
+import java.util.Calendar;
+
 public class ScheduleFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState){
         final View root = inflater.inflate(R.layout.fragment_schedule, container, false);
+         final TextView textView = root.findViewById(R.id.week_of);
 
-         final TextView textView = root.findViewById(R.id.testing);
+        Calendar cal = Calendar.getInstance();
+        int WeekOfMonth = cal.get(Calendar.WEEK_OF_MONTH);
 
-        textView.setText("Schedule");
+        textView.setText(Integer.toString(WeekOfMonth));
 
         return root;
     }

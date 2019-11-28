@@ -53,7 +53,7 @@ public class TeamsFragment extends Fragment {
                     final String team_name = teams.get(i).getTeamName();
                     TextView team_info = new TextView(getActivity());
                     team_info.setId(i);
-                    team_info.setTextSize(20);
+                    team_info.setTextAppearance(R.style.TeamListStyle);
                     team_info.setPadding(10,20,0,20);
                     team_info.setText(team_name);
                     team_info.setOnClickListener(new View.OnClickListener() {

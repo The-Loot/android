@@ -6,16 +6,12 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
-
 import com.thelootbasketball.APIClient;
 import com.thelootbasketball.APIInterface;
 import com.thelootbasketball.models.Team;
 import com.thelootbasketball.R;
 import com.thelootbasketball.models.Player;
 import com.thelootbasketball.models.TeamInfo;
-
-import org.w3c.dom.Text;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
