@@ -34,7 +34,7 @@ public class TeamProfileActivity extends FragmentActivity {
         final TextView roster = findViewById(R.id.roster);
 
         Toolbar mToolBar = findViewById(R.id.back_button);
-        mToolBar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        mToolBar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
         mToolBar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

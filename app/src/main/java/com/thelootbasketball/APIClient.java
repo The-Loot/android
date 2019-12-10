@@ -8,8 +8,24 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class APIClient {
 
     static final String BASE_URL = "https://theloot-backend.herokuapp.com";
+    static final String STAGE_BASE_URL = "https://theloot-backend-staging.herokuapp.com/";
 
     private static Retrofit retrofit = null;
+
+//    static public Retrofit getClient(){
+//
+//        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+//        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+//        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+//
+//        retrofit = new Retrofit.Builder()
+//                .baseUrl(BASE_URL)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .client(client)
+//                .build();
+//
+//        return retrofit;
+//    }
 
     static public Retrofit getClient(){
 
@@ -18,11 +34,13 @@ public class APIClient {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(STAGE_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
 
         return retrofit;
     }
+
+
 }

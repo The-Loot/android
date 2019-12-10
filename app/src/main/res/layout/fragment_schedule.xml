@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/week_of"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:layout_centerHorizontal="true"
     />
 
-    <Button
-        android:id="@+id/button"
+
+    <ImageButton
+        android:id="@+id/previous_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Button" />
+        android:layout_toLeftOf="@id/week_of"
+        android:src="@drawable/ic_arrow_back_black_24dp" />
 
+    <ImageButton
+        android:id="@+id/forward_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/week_of"
+        android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/testing"
+        />
 
 </LinearLayout>
