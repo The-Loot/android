@@ -10,5 +10,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_schedule">Schedule</string>
     <string name="menu_teams">Teams</string>
-
+    <string name="back_button">Back_Button</string>
+    <string name="forward_button">Forward_Button</string>
 </resources>

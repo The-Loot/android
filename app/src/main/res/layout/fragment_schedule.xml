@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -14,31 +14,41 @@
         android:layout_centerHorizontal="true"
     />
 
-
     <ImageButton
+        android:contentDescription="@string/back_button"
         android:id="@+id/previous_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/week_of"
+        android:layout_toStartOf="@id/week_of"
         android:src="@drawable/ic_arrow_back_black_24dp" />
 
     <ImageButton
+        android:contentDescription="@string/forward_button"
         android:id="@+id/forward_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/week_of"
+        android:layout_toEndOf="@id/week_of"
         android:src="@drawable/ic_arrow_forward_black_24dp" />
 
     <View
+        android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        />
+        android:layout_alignBottom="@id/previous_button"
+        android:background="@android:color/darker_gray" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/testing"
-        />
 
-</LinearLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/divider"
+            android:id="@+id/schedule"
+            android:stretchColumns="*">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/testing"
+                />
+        </TableRow>
+
+</RelativeLayout>

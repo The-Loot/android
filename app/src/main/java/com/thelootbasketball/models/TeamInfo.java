@@ -37,5 +37,4 @@ public class TeamInfo {
         }
         return instance;
     }
-
 }

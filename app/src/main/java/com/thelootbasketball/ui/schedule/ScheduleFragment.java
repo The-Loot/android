@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TableRow;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -16,15 +17,15 @@ import java.util.Locale;
 
 public class ScheduleFragment extends Fragment {
     private Calendar cal = Calendar.getInstance(Locale.US);
-    public String getCurrentWeek(){
+    private String getCurrentWeek(){
         cal = Calendar.getInstance(Locale.US);
         cal.setFirstDayOfWeek(Calendar.SUNDAY);
         cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
         return getNextWeek();
     }
 
-    public String getNextWeek(){
-        DateFormat df = new SimpleDateFormat("MM/dd/yy");
+    private String getNextWeek(){
+        DateFormat df = new SimpleDateFormat("MM/dd/yy", Locale.US);
         String[] days = new String[7];
         for (int i = 0; i < 7; i++){
             days[i] = df.format(this.cal.getTime());
@@ -32,11 +33,10 @@ public class ScheduleFragment extends Fragment {
         }
             String firstDayOfWeek = days[0];
             String LastDayOfWeek = days[days.length - 1];
-            String WeekOf = "Week of: " + firstDayOfWeek + " to " + LastDayOfWeek;
-            return WeekOf;
+            return "Week of: " + firstDayOfWeek + " to " + LastDayOfWeek;
     }
 
-    public String getPreviousWeek() {
+    private String getPreviousWeek() {
         cal.add(Calendar.DATE, -14);
         return getNextWeek();
     }
@@ -50,6 +50,7 @@ public class ScheduleFragment extends Fragment {
         final TextView textView1 = root.findViewById(R.id.testing);
         final ImageButton previousButton = root.findViewById(R.id.previous_button);
         final ImageButton nextButton = root.findViewById(R.id.forward_button);
+        TableRow schedule_row = root.findViewById(R.id.schedule);
 
         previousButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +66,9 @@ public class ScheduleFragment extends Fragment {
                     textView.setText(getNextWeek());
             }
         });
+
+
+
 
         textView1.setText("Testing");
 

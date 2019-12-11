@@ -5,26 +5,32 @@ import com.google.gson.annotations.SerializedName;
 public class Schedule {
 
     @SerializedName("teamOne_name")
-    String teamOne_name;
+    private String teamOne_name;
 
     @SerializedName("teamTwo_name")
-    String teamTwo_name;
+    private String teamTwo_name;
 
     @SerializedName("location")
-    String location;
+    private String location;
 
     @SerializedName("date")
-    String date;
+    private String date;
 
     @SerializedName("time")
-    String time;
+    private String time;
 
     @SerializedName("division")
-    String division;
+    private String division;
 
+    public Schedule(){}
 
-    public Schedule(){
-
+    public Schedule(String teamOne_name, String teamTwo_name, String location, String date, String time, String division){
+        this.teamOne_name = teamOne_name;
+        this.teamTwo_name = teamTwo_name;
+        this.location = location;
+        this.date = date;
+        this.time = time;
+        this.division = division;
     }
 
     public String getTeamOne_name(){
