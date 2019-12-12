@@ -16,20 +16,16 @@ public class Schedule {
     @SerializedName("date")
     private String date;
 
-    @SerializedName("time")
-    private String time;
-
     @SerializedName("division")
     private String division;
 
     public Schedule(){}
 
-    public Schedule(String teamOne_name, String teamTwo_name, String location, String date, String time, String division){
+    public Schedule(String teamOne_name, String teamTwo_name, String location, String date, String division){
         this.teamOne_name = teamOne_name;
         this.teamTwo_name = teamTwo_name;
         this.location = location;
         this.date = date;
-        this.time = time;
         this.division = division;
     }
 
@@ -63,14 +59,6 @@ public class Schedule {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public String getDivision() {

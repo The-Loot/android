@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class APIClient {
 
     static final String BASE_URL = "https://theloot-backend.herokuapp.com";
-    static final String STAGE_BASE_URL = "https://theloot-backend-staging.herokuapp.com/";
+    static final String STAGE_BASE_URL = "https://theloot-backend-staging.herokuapp.com";
 
     private static Retrofit retrofit = null;
 

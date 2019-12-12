@@ -8,14 +8,30 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.thelootbasketball.APIClient;
+import com.thelootbasketball.APIInterface;
+import com.thelootbasketball.models.Schedule;
 import com.thelootbasketball.R;
+
+import java.sql.Time;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
+import java.util.List;
+import java.util.TimeZone;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class ScheduleFragment extends Fragment {
+    APIInterface apiInterface;
+
     private Calendar cal = Calendar.getInstance(Locale.US);
     private String getCurrentWeek(){
         cal = Calendar.getInstance(Locale.US);
@@ -67,11 +83,32 @@ public class ScheduleFragment extends Fragment {
             }
         });
 
+        apiInterface = APIClient.getClient().create(APIInterface.class);
+        Call<List<Schedule>> call = apiInterface.getSchedule();
+        call.enqueue(new Callback<List<Schedule>>() {
+            @Override
+            public void onResponse(Call<List<Schedule>> call, Response<List<Schedule>> response) {
+               List<Schedule> getSchedule = response.body();
+                for (int i = 0; i < getSchedule.size(); i++){
+                    String schedule_date = getSchedule.get(i).getDate();
+                    try {
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE MMM dd yyyy HH:mm:ss z", Locale.getDefault());
+                        Date date = simpleDateFormat.parse(schedule_date);
+                        SimpleDateFormat df = new SimpleDateFormat("MM/dd/yy KK:mm a", Locale.getDefault());
+                        String formattedDate = df.format(date);
+                        textView1.setText(formattedDate);
+                    } catch(ParseException e){
+                        e.printStackTrace();
+                    }
+                }
 
+            }
 
-
-        textView1.setText("Testing");
-
+            @Override
+            public void onFailure(Call<List<Schedule>> call, Throwable t) {
+                    call.cancel();
+            }
+        });
         return root;
     }
 }
