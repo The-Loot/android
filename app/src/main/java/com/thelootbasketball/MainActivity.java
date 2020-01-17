@@ -1,22 +1,21 @@
 package com.thelootbasketball;
 
+
+import android.content.Intent;
 import android.os.Bundle;
-
-import android.view.View;
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
+import android.view.MenuItem;
+import android.view.Menu;
 import com.google.android.material.navigation.NavigationView;
-
+import com.thelootbasketball.ui.admin.AdminLogin;
+import com.thelootbasketball.ui.appsettings.AppSettings;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +46,22 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.action_settings:
+                Intent settings = new Intent(this, AppSettings.class);
+                this.startActivity(settings);
+                return true;
+            case R.id.action_admin:
+                Intent admin = new Intent(this, AdminLogin.class);
+                this.startActivity(admin);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
