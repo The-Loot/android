@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.admin.AdminLogin"></activity>
+        <activity android:name=".ui.admin.AdminPanel"></activity>
+        <activity android:name=".ui.admin.AdminSignUp" />
+        <activity android:name=".ui.admin.AdminLogin" />
         <activity android:name=".ui.appsettings.AppSettings" />
         <activity
             android:name=".MainActivity"
