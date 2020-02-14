@@ -18,5 +18,9 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="Register">Register</string>
+    <string name="AddTeam">Add Team</string>
     <string name="Registration">Need an Account?</string>
+    <string name="Team">Team</string>
+    <string name="Player">Player</string>
+    <string name="Schedule">Schedule</string>
 </resources>

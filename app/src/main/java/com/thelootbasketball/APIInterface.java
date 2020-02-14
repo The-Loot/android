@@ -35,4 +35,8 @@ public interface APIInterface {
     Call<User> UserLogin(@Field("username") String username,
                          @Field("password") String password);
 
+    @FormUrlEncoded
+    @POST("/api/teams")
+    Call<Team> CreateTeam(@Field("name") String name,
+                          @Field("division") String division);
 }
