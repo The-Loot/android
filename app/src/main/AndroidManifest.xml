@@ -12,11 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.admin.AdminTeam"></activity>
+        <activity android:name=".ui.admin.AdminTeam" />
         <activity android:name=".ui.admin.AdminPanel" />
         <activity android:name=".ui.admin.AdminSignUp" />
         <activity android:name=".ui.admin.AdminLogin" />
         <activity android:name=".ui.appsettings.AppSettings" />
+        <activity android:name=".ui.teams.TeamProfileActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -27,7 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.teams.TeamProfileActivity" />
+
     </application>
 
 </manifest>

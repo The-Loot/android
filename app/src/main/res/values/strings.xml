@@ -21,6 +21,21 @@
     <string name="AddTeam">Add Team</string>
     <string name="Registration">Need an Account?</string>
     <string name="Team">Team</string>
+    <string name="TeamName">Team Name</string>
+    <string name="Division">Division</string>
     <string name="Player">Player</string>
     <string name="Schedule">Schedule</string>
+    <string name="UpdateTeam">Update Team</string>
+    <string name="DeleteTeam">Delete Team</string>
+
+    <string-array name="team_array">
+        <item>-Please Select-</item>
+        <item>Create Team</item>
+        <item>Update Team</item>
+        <item>Delete Team</item>
+    </string-array>
+
+
+
+    <string name="Test">Test</string>
 </resources>
